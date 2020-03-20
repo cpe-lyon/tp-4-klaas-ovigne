@@ -278,7 +278,6 @@ chmod u+x,g=w,o-r fic   -> chmod 520 fic
 
 14. *Affichez les droits sur le programme passwd. Que remarquez-vous ? En affichant les droits du fichier /etc/passwd, pouvez-vous justifier les permissions sur le programme passwd ?*
 
+`stat -c %A /etc/passwd` -> `-rw-r--r--`
 
-
-&nbsp;
-
+Sur ce programme, les utilisateurs *group* et *other* n'ont que le droit en lecture, et non en écriture. Effectivement il faut être *root* pour pouvoir gérer les utilisateurs.
