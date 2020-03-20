@@ -167,11 +167,11 @@ Même sans avoir de droits, en tant que root on peut quand même modifier le fic
 &nbsp;
 
 3. *Redonnez vous les droits en écriture et exécution sur fichier puis exécutez la commande echo "echo Hello" > fichier. On a vu lors des TP précédents que cette commande remplace le contenu d’un fichier s’il existe déjà. Que peut-on dire au sujet des droits ?*
-On utilise la commande `sudo chmod u+wx fichier` pour récupérer les droits
 
-Avec la commande `echo "echo Hello" > fichier` en executant le fichier 
-`./fichier`
-il va afficher "Hello".
+On utilise la commande `sudo chmod u+wx fichier` pour récupérer les droits.
+
+Avec la commande `echo "echo Hello" > fichier` en executant le fichier avec `./fichier` il va afficher "Hello".
+
 &nbsp;
 
 4. *Essayez d’exécuter le fichier. Est-ce que cela fonctionne ? Et avec sudo ? Expliquez.*
@@ -216,9 +216,8 @@ Lorsque l'on remet les droits en ecriture sur le repertoire, on ne peut pas écr
 &nbsp;
 
 7. *Positionnez vous dans votre répertoire personnel, puis retirez le droit en exécution du répertoire test. Tentez de créer, supprimer, ou modifier un fichier dans le répertoire test, de vous y déplacer, d’en lister le contenu, etc…Qu’en déduisez vous quant au sens du droit en exécution pour les répertoires ?*
-Supprimer les droits d'éxécution du dossier bloque toute action sur le dossier.
-En utilisant `ls` nous pouvons quand même obtenir les noms des fichiers/dossiers 
-à l'intérieur mais c'est tout.
+
+Supprimer les droits d'éxécution du dossier bloque toute action sur le dossier. En utilisant `ls` nous pouvons quand même obtenir les noms des fichiers/dossiers à l'intérieur mais c'est tout.
 &nbsp;
 
 8. *Rétablissez le droit en exécution du répertoire test. Positionnez vous dans ce répertoire et retirez lui à nouveau le droit d’exécution. Essayez de créer, supprimer et modifier un fichier dans le répertoire test, de vous déplacer dans ssrep, de lister son contenu. Qu’en concluez-vous quant à l’influence des droits que l’on possède sur le répertoire courant ? Peut-on retourner dans le répertoire parent avec ”cd ..” ? Pouvez-vous donner une explication ?*
