@@ -85,11 +85,11 @@ ou supprimer ce fichier ?*
 
 
 16. *Modifiez le compte de u4 de sorte que :*
-— *il expire au 1er juin 2020*
-— *il faut changer de mot de passe avant 90 jours*
-— *il faut attendre 5 jours pour modifier un mot de passe*
-— *l’utilisateur est averti 14 jours avant l’expiration de son mot de passe*
-— *le compte sera bloqué 30 jours après expiration du mot de passe*
+- *il expire au 1er juin 2020*
+- *il faut changer de mot de passe avant 90 jours*
+- *il faut attendre 5 jours pour modifier un mot de passe*
+- *l’utilisateur est averti 14 jours avant l’expiration de son mot de passe*
+- *le compte sera bloqué 30 jours après expiration du mot de passe*
 
 &nbsp;
 
