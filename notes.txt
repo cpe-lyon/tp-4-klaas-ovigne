@@ -1,0 +1,76 @@
+EXO 1
+
+
+1`sudo addgroup nom_groupe` g1:1001; g2:1002
+
+2`sudo useradd uX -m --shell /bin/bash`
+
+3`sudo gpasswd -a uX groupeX`
+
+4`getent group groupe2` 
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+
+
+EXO 2
+
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
