@@ -6,14 +6,12 @@ OVIGNE Adrien *(INFRA)* & KLAAS Guillaume *(INFO)*
 
 1. *Commencez par créer deux groupes groupe1 et groupe2*
 
-Bash trouve les commandes dans les dossiers affichés par la commande **printenv PATH**.
 
 &nbsp;
 
 2. *Créez ensuite 4 utilisateurs u1, u2, u3, u4 avec la commande useradd, en demandant la création de
 leur dossier personnel et avec bash pour shell*
 
-Il s'agit de la variable d'environnement **HOME**.
 
 &nbsp;
 
@@ -21,20 +19,18 @@ Il s'agit de la variable d'environnement **HOME**.
 - *u1, u2, u4 dans groupe1*
 - *u2, u3, u4 dans groupe2*
 
-dfgqdfgfdg
+
 
 &nbsp;
 
 
 4. *Donnez deux moyens d’afficher les membres de groupe2*
 
-On entre les commandes suivantes: **MY_VAR="test"** puis **echo $MY_VAR**
 
 &nbsp;
 
 5. *Faites de groupe1 le groupe propriétaire de /home/u1 et /home/u2 et de groupe2 le groupe propriétaire de /home/u3 et /home/u4*
 
-**bash** nous place dans un nouveau shell, la variable locale MY\_VAR n'y existe pas. un **echo $MY\_VAR** n'affiche donc rien apres avoir fait **exit** on revient dans le shell où MY\_VAR existe.
 
 &nbsp;
 
@@ -42,31 +38,25 @@ On entre les commandes suivantes: **MY_VAR="test"** puis **echo $MY_VAR**
 - *groupe1 pour u1 et u2*
 - *groupe2 pour u3 et u4*
 
-**export MY_VAR="test_env"** permet de transformer MY_VAR en variable d'environnement, elle reste donc accessible même après la manipulation de la question précédente.
 
 &nbsp;
 
 7. *Créez deux répertoires /home/groupe1 et /home/groupe2 pour le contenu commun aux groupes, et mettez en place les permissions permettant aux membres de chaque groupe d’écrire dans le dossier associé.*
 
-**export NOMS="KLAAS OVIGNE" ; printenv NOMS**
 
 &nbsp;
 
 8.*Comment faire pour que, dans ces dossiers, seul le propriétaire d’un fichier ait le droit de renommer
 ou supprimer ce fichier ?*
-**echo Bonjour à vous deux, $NOMS!**
  
  &nbsp;
 
 9. *Pouvez-vous vous connecter en tant que u1 ? Pourquoi ?*
 
-**unset** supprime la variable.
  
  &nbsp;
 
 10. *Activez le compte de l’utilisateur u1 et vérifiez que vous pouvez désormais vous connecter avec son compte.*
-
-**echo \$HOME = $HOME** le "\" permet d'afficher "HOME" au lieu du contenu de la variable d'environnement.
 
 &nbsp;
 
