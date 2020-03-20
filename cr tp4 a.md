@@ -46,7 +46,7 @@ leur dossier personnel et avec bash pour shell*
 
 &nbsp;
 
-8.*Comment faire pour que, dans ces dossiers, seul le propriétaire d’un fichier ait le droit de renommer
+8. *Comment faire pour que, dans ces dossiers, seul le propriétaire d’un fichier ait le droit de renommer
 ou supprimer ce fichier ?*
  
  &nbsp;
