@@ -222,21 +222,39 @@ Supprimer les droits d'éxécution du dossier bloque toute action sur le dossier
 
 8. *Rétablissez le droit en exécution du répertoire test. Positionnez vous dans ce répertoire et retirez lui à nouveau le droit d’exécution. Essayez de créer, supprimer et modifier un fichier dans le répertoire test, de vous déplacer dans ssrep, de lister son contenu. Qu’en concluez-vous quant à l’influence des droits que l’on possède sur le répertoire courant ? Peut-on retourner dans le répertoire parent avec ”cd ..” ? Pouvez-vous donner une explication ?*
 
+On peut conclure que nos permissions dépende des permissions du repertoire dans lequel on se trouve. La commande **cd ..** marche car on a les permissions nécéssaires dans le repertoire parent.
+
 &nbsp;
 
 9. *Rétablissez le droit en exécution du répertoire test. Attribuez au fichier fichier les droits suffisants pour qu’une autre personne de votre groupe puisse y accéder en lecture, mais pas en écriture.*
+
+Rétablir le droit d'execution : `chmod u+x test`
+
+Ajouter les droits en lecture au groupe : `chmod g+r test/fichier`
+
+Enlever le droit en ecriture : `chmod g-w test/fichier`
 
 &nbsp;
 
 10. *Définissez un umask très restrictif qui interdit à quiconque à part vous l’accès en lecture ou en écriture, ainsi que la traversée de vos répertoires. Testez sur un nouveau fichier et un nouveau répertoire.*
 
+on souhaite donc des permissions du type : 111-000-000.
+
+On utilise donc `umask 077`
+
 &nbsp;
 
 11. *Définissez un umask très permissif qui autorise tout le monde à lire vos fichiers et traverser vos répertoires, mais n’autorise que vous à écrire. Testez sur un nouveau fichier et un nouveau répertoire.*
 
+De la même manière, ici on souhaite des permissions comme ceci : 111-101-101
+On utilise donc `umask 022`
+
 &nbsp;
 
 12. *Définissez un umask équilibré qui vous autorise un accès complet et autorise un accès en lecture aux membres de votre groupe. Testez sur un nouveau fichier et un nouveau répertoire.*
+
+De la même manière, ici on souhaite des permissions comme ceci : 111-100-000
+On utilise donc `umask 037`
 
 &nbsp;
 
@@ -246,6 +264,15 @@ Supprimer les droits d'éxécution du dossier bloque toute action sur le dossier
 - *chmod uo+w,g-rx fic en sachant que les droits initiaux de fic sont r--r-x---*
 - *chmod 653 fic en sachant que les droits initiaux de fic sont 711*
 - *chmod u+x,g=w,o-r fic en sachant que les droits initiaux de fic sont r--r-x---*
+
+chmod u=rx,g=wx,o=r fic -> chmod 534 fic
+
+chmod uo+w,g-rx fic     -> chmod 604 fic
+
+chmod 653 fic           -> chmod u-x,g-r,o-w fic
+
+chmod u+x,g=w,o-r fic   -> chmod 520 fic
+
 
 &nbsp;
 
