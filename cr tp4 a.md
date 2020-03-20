@@ -2,7 +2,7 @@ OVIGNE Adrien *(INFRA)* & KLAAS Guillaume *(INFO)*
 
 # TP4  Utilisateurs, groupes et permissions
 
-## Exercice 1.
+## Exercice 1. Gestion des utilisateurs et des groupes
 
 1. *Commencez par créer deux groupes groupe1 et groupe2*
 
@@ -108,7 +108,7 @@ ou supprimer ce fichier ?*
 
 &nbsp;
 
-
+## Exercice 2. Gestion des permissions
 
 1. *Dans votre $HOME, créez un dossier test, et dans ce dossier un fichier fichier contenant quelques lignes de texte. Quels sont les droits sur test et fichier ?*
 
