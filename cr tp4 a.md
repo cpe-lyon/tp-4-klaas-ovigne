@@ -112,17 +112,24 @@ ou supprimer ce fichier ?*
 
 1. *Dans votre $HOME, créez un dossier test, et dans ce dossier un fichier fichier contenant quelques lignes de texte. Quels sont les droits sur test et fichier ?*
 
+On remarque que le fichier et le dossier n'ont pas les mêmes droits. Les fichier est en rw alors que le dossier est en rwx
+
 &nbsp;
 
 2. Retirez tous les droits sur ce fichier (même pour vous), puis essayez de le modifier et de l’afficher en tant que root. Conclusion ?
 
+Même sans avoir de droits, en tant que root on peut quand même modifier le fichier. Le root a donc tous les droits, indépendamment des droits sur les fichiers.
+
 &nbsp;
 
 3. *Redonnez vous les droits en écriture et exécution sur fichier puis exécutez la commande echo "echo Hello" > fichier. On a vu lors des TP précédents que cette commande remplace le contenu d’un fichier s’il existe déjà. Que peut-on dire au sujet des droits ?*
-
+Rodonner les droits **w** et **x** : `sudo chmod 333 fichier`.
 &nbsp;
 
 4. *Essayez d’exécuter le fichier. Est-ce que cela fonctionne ? Et avec sudo ? Expliquez.*
+`cd test/`
+`./fichier`
+Nous n'avons pas la permission. Cela est du au fait que l'on aie pas le droit de lecture sur ce fichier. En faisant de même en sudo, on eçoit `Hello`.
 
 &nbsp;
 
