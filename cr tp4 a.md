@@ -138,6 +138,13 @@ Nous n'avons pas la permission. Cela est du au fait que l'on aie pas le droit de
 
 5. *Placez-vous dans le répertoire test, et retirez-vous le droit en lecture pour ce répertoire. Listez le contenu du répertoire, puis exécutez ou affichez le contenu du fichier fichier. Qu’en déduisez-vous ? Rétablissez le droit en lecture sur test*
 
+Pour se retirer les droits de lecture dans le repertoire test : `chmod u-r test`.
+
+Puis en faisant `ls test`, on nous dit que nous n'avons pas la permission (car on n'a pas les droits de lecture).
+
+Pourtant on peut lire le fichier "fichier", car même si nous n'avons plus les droits en lecture sur le repertoire "test", on les a toujours sur le fichier "fichier".
+
+Ensuite pour rétablir ce droit : `chmod u+r test`
 &nbsp;
 
 6. *Créez dans test un fichier nouveau ainsi qu’un répertoire sstest. Retirez au fichier nouveau et au répertoire test le droit en écriture. Tentez de modifier le fichier nouveau. Rétablissez ensuite le droit en écriture au répertoire test. Tentez de modifier le fichier nouveau, puis de le supprimer. Que pouvezvous déduire de toutes ces manipulations ?*
