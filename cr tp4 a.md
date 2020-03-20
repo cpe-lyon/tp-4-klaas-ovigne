@@ -129,8 +129,10 @@ Même sans avoir de droits, en tant que root on peut quand même modifier le fic
 4. *Essayez d’exécuter le fichier. Est-ce que cela fonctionne ? Et avec sudo ? Expliquez.*
 
 `cd test/`
+
 `./fichier`
-Nous n'avons pas la permission. Cela est du au fait que l'on aie pas le droit de lecture sur ce fichier. En faisant de même en sudo, on eçoit `Hello`.
+
+Nous n'avons pas la permission. Cela est du au fait que l'on aie pas le droit de lecture sur ce fichier. En faisant de même en sudo, on reçoit `Hello`.
 
 &nbsp;
 
