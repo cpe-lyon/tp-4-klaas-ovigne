@@ -123,10 +123,11 @@ Même sans avoir de droits, en tant que root on peut quand même modifier le fic
 &nbsp;
 
 3. *Redonnez vous les droits en écriture et exécution sur fichier puis exécutez la commande echo "echo Hello" > fichier. On a vu lors des TP précédents que cette commande remplace le contenu d’un fichier s’il existe déjà. Que peut-on dire au sujet des droits ?*
-Rodonner les droits **w** et **x** : `sudo chmod 333 fichier`.
+
 &nbsp;
 
 4. *Essayez d’exécuter le fichier. Est-ce que cela fonctionne ? Et avec sudo ? Expliquez.*
+
 `cd test/`
 `./fichier`
 Nous n'avons pas la permission. Cela est du au fait que l'on aie pas le droit de lecture sur ce fichier. En faisant de même en sudo, on eçoit `Hello`.
