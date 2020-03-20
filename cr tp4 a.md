@@ -145,9 +145,24 @@ Puis en faisant `ls test`, on nous dit que nous n'avons pas la permission (car o
 Pourtant on peut lire le fichier "fichier", car même si nous n'avons plus les droits en lecture sur le repertoire "test", on les a toujours sur le fichier "fichier".
 
 Ensuite pour rétablir ce droit : `chmod u+r test`
+
 &nbsp;
 
 6. *Créez dans test un fichier nouveau ainsi qu’un répertoire sstest. Retirez au fichier nouveau et au répertoire test le droit en écriture. Tentez de modifier le fichier nouveau. Rétablissez ensuite le droit en écriture au répertoire test. Tentez de modifier le fichier nouveau, puis de le supprimer. Que pouvezvous déduire de toutes ces manipulations ?*
+
+Pour enlever le droit en ecriture `sudo chmod u-w nouveau` & `sudo chmod u-w test`
+
+Pour tenter de modifier le fichier nouveau : `echo "test ecriture 1 " > test/nouveau` -> `Permisson denied` (on ne peut pas suprimmer le fichier non plus d'ailleurs).
+
+Rétablir le droit en écriture : `chmod u+w test`
+
+Ensuite `echo "test ecriture 2 " > test/nouveau` -> `Permisson denied`
+
+Tentative de supression : `rm test/nouveau`, le fichier est supprimé.
+
+Lorsque l'on remet les droits en ecriture sur le repertoire, on ne peut pas écrire dans les fichiers qu'il contient (sauf si nous avons l'autorisation sur les fichiers) mais nous pouvons quand même les supprimer.
+
+
 
 
 &nbsp;
