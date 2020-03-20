@@ -6,12 +6,14 @@ OVIGNE Adrien *(INFRA)* & KLAAS Guillaume *(INFO)*
 
 1. *Commencez par créer deux groupes groupe1 et groupe2*
 
+`sudo addgroup nom_groupe` permet d'ajouter un groupe.
 
 &nbsp;
 
 2. *Créez ensuite 4 utilisateurs u1, u2, u3, u4 avec la commande useradd, en demandant la création de
 leur dossier personnel et avec bash pour shell*
 
+`sudo useradd uX -m --shell /bin/bash` permet d'ajouter un utiliseur et définir son shell.
 
 &nbsp;
 
@@ -19,18 +21,20 @@ leur dossier personnel et avec bash pour shell*
 - *u1, u2, u4 dans groupe1*
 - *u2, u3, u4 dans groupe2*
 
-
+`sudo gpasswd -a uX groupeX` permet d'ajouter un utilisateur `uX` à un groupe `groupeX`.
 
 &nbsp;
 
 
 4. *Donnez deux moyens d’afficher les membres de groupe2*
 
+`getent group groupe2` & `grep groupe2 /etc/group | cut -d: -f4`.
 
 &nbsp;
 
 5. *Faites de groupe1 le groupe propriétaire de /home/u1 et /home/u2 et de groupe2 le groupe propriétaire de /home/u3 et /home/u4*
 
+`chgrp groupeX /home/uX` permet de changer le groupe de `/home/uX` à `groupeX`. Exemple: `chrgrp groupe2 /home/u2`.
 
 &nbsp;
 
@@ -38,48 +42,73 @@ leur dossier personnel et avec bash pour shell*
 - *groupe1 pour u1 et u2*
 - *groupe2 pour u3 et u4*
 
+`usermod -g groupeX uX` permet de changer le groupe primaire d'un utilisateur `uX` vers le groupe `groupeX`.
 
 &nbsp;
 
 7. *Créez deux répertoires /home/groupe1 et /home/groupe2 pour le contenu commun aux groupes, et mettez en place les permissions permettant aux membres de chaque groupe d’écrire dans le dossier associé.*
 
+On commence par créer le répertoire `mkdir /home/groupeX`
+
+Puis on fixe le propriétaire `chgrp groupeX /home/groupeX`
+
+Enfin on donne des droits, ici lecture & ecriture `chmod g+w /home/groupeX`
 
 &nbsp;
 
 8. *Comment faire pour que, dans ces dossiers, seul le propriétaire d’un fichier ait le droit de renommer
 ou supprimer ce fichier ?*
  
+Il faut activer le stick bit : `chmod +t fichier`
+ 
  &nbsp;
 
 9. *Pouvez-vous vous connecter en tant que u1 ? Pourquoi ?*
 
+On ne peux pas se connecter en tant qu'utilisateur u1 son compte est inactif, car il n'a pas de mot de passe.
  
  &nbsp;
 
 10. *Activez le compte de l’utilisateur u1 et vérifiez que vous pouvez désormais vous connecter avec son compte.*
 
+Pour activer le compte u1 on lui attribue un mot de passe: `passwd u1`
+
+pour vérifier que le compte est désormais actif on tente de se connecter: 'su u1 -`
+
 &nbsp;
 
 11. *Quels sont l’uid et le gid de u1 ?*
 
+On utilise la commande `id u1`. On obtient un uid = 1001 et un gid = 1003
+
 &nbsp;
 
 12. *Quel utilisateur a pour uid 1003 ?*
+
+Il s'agit de `u3`.
 
 &nbsp;
 
 
 13. *Quel est l’id du groupe groupe1 ?*
 
+L'id du groupe1 est 1001 celui du groupe2 est 1002 on l'obtient à la création du groupe ou dans le fichier `/etc/group`.
+
 &nbsp;
 
 
 14. *Quel groupe a pour guid 1002 ?*
 
+Le groupe2est le possesseur de l'id 1002.
+
 &nbsp;
 
 
 15. *Retirez l’utilisateur u3 du groupe groupe2. Que se passe-t-il ? Expliquez.*
+
+Pour enlever un groupe à u3 on utilise la commande `gpasswd -d groupe_a_enlever` en l'occurence le groupe2.  
+
+Après avoir enlevé u3 au groupe2 on remarque que u3 est toujours considéré comme étant dans le groupe2 car u3 n'a qu'un groupe, au prochain démarrage un groupe u3 sera créé et contiendra uniquement u3.
 
 &nbsp;
 
@@ -91,20 +120,35 @@ ou supprimer ce fichier ?*
 - *l’utilisateur est averti 14 jours avant l’expiration de son mot de passe*
 - *le compte sera bloqué 30 jours après expiration du mot de passe*
 
+Pour la date `chage -E YYYY-MM-DD uX` ici YYYY = 2020 MM = 06, DD = 01 et uX = u4.
+
+Pour la durée maximale avant changement du mot de passe `chage -M 90 u4`.
+
+Pour la durée minimale avant changement du mot de passe `chage -m 5 u4`.
+
+Pour le Warning: `chage -W 14 u4`.
+
+Pour le blocage: `chage -I 30 u4`.
+
 &nbsp;
 
 
 17. *Quel est l’interpréteur de commandes (Shell) de l’utilisateur root ?*
+
+`sudo -u root printenv SHELL` et on obtient `/bin/bash`.
 
 &nbsp;
 
 
 18. *à quoi correspond l’utilisateur nobody ?*
 
+`nobody` est un pseudo-utilisateur qui n'a que les droits minimaux. Il est/était utilisé  pour lancer des services sensibles afin de limiter les risques en cas d'attaque mais cela perd son sens lorsque plusieurs processus sont lancés en même temps par "nobody".
+
 &nbsp;
 
-
 19. *Par défaut, combien de temps la commande sudo conserve-t-elle votre mot de passe en mémoire ? Quelle commande permet de forcer sudo à oublier votre mot de passe ?*
+
+Le temps par défaut est 5 minutes (dépend des sources / distributions), il peut être modifié grâce à la commande `visudo` qui nous donne accès à un fichier où il faudra ajouter/changer la variable timestamp_timeout.
 
 &nbsp;
 
